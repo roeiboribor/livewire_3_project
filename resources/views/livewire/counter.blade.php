@@ -1,22 +1,30 @@
 <div class="px-4">
+    @if (session('success'))
+    <div class="mb-4 p-4 bg-green-300 text-green-800 rounded-md flex items-center justify-between">
+        <span>{{ session('success') }}</span>
+        <span wire:click="handleForgetSession" class="cursor-pointer">
+            <i class='bx bx-x-circle'></i>
+        </span>
+    </div>
+    @endif
     <form wire:submit="handleSubmit">
         <div class="space-y-4">
             <div>
-                <input wire:model="name" name="name" type="text" placeholder="name"
+                <input wire:model.blur="name" name="name" type="text" placeholder="name"
                     class="block border border-gray-100 rounded-md px-3 py-1 w-full">
                 @error('name')
                 <span class="text-red-500 text-xs">{{ $message }}</span>
                 @enderror
             </div>
             <div>
-                <input wire:model="email" name="email" type="email" placeholder="email"
+                <input wire:model.blur="email" name="email" type="email" placeholder="email"
                     class="block border border-gray-100 rounded-md px-3 py-1 w-full">
                 @error('email')
                 <span class="text-red-500 text-xs">{{ $message }}</span>
                 @enderror
             </div>
             <div>
-                <input wire:model="password" name="password" type="text" placeholder="password"
+                <input wire:model.blur="password" name="password" type="text" placeholder="password"
                     class="block border border-gray-100 rounded-md px-3 py-1 w-full">
                 @error('password')
                 <span class="text-red-500 text-xs">{{ $message }}</span>
@@ -45,5 +53,8 @@
             </tr>
             @endforelse
         </table>
+        <div class="mt-4">
+            {{ $users->links() }}
+        </div>
     </div>
 </div>

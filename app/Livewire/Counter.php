@@ -50,11 +50,11 @@ class Counter extends Component
         $this->reset();
         $this->resetValidation();
 
-        request()->session()->flash('success', 'User has been created!');
+        session()->flash('success', 'User has been created!');
     }
 
     public function handleForgetSession()
     {
-        request()->session()->forget('success');
+        session()->forget('success');
     }
 }

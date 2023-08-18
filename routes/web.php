@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\AnotherOne;
+use App\Livewire\AnotherTwo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get('/another-one', AnotherOne::class)->name('another-one');
+Route::get('/another-two', AnotherTwo::class)->name('another-two');

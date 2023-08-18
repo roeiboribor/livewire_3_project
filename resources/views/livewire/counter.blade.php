@@ -7,6 +7,16 @@
         </span>
     </div>
     @endif
+    <div class="flex justify-between mb-8">
+        <div>
+            <a class="transition bg-blue-500 hover:bg-blue-700 px-3.5 py-1.5 rounded-xl text-white shadow"
+                href="{{ route('another-one') }}" wire:navigate>Another One</a>
+        </div>
+        <div>
+            <a class="transition bg-blue-500 hover:bg-blue-700 px-3.5 py-1.5 rounded-xl text-white shadow"
+                href="{{ route('another-two') }}" wire:navigate>Another Two</a>
+        </div>
+    </div>
     <form wire:submit="handleSubmit">
         <div class="space-y-4">
             <div>
